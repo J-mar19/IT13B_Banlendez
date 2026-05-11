@@ -2,6 +2,8 @@ package midterm;
 
 import java.io.IOException;
 import java.io.FileWriter;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 public class Balendez_File_Handling_in_Caesar_Encryption {
@@ -77,3 +79,21 @@ public class Balendez_File_Handling_in_Caesar_Encryption {
     }
     
 }
+String firstname = tfirstname.getText();
+        String middlename = tmiddlename.getText();
+        String lastname = tlastname.getText();
+        String ninjarank = btnninjarank.getSelectedItem().toString();
+        
+        if(firstname.isEmpty() || middlename.isEmpty() || lastname.isEmpty() || ninjarank.isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                    "Please enter your fields", 
+                    "Try again", JOptionPane.ERROR_MESSAGE);
+        } else {
+            DefaultTableModel model = (DefaultTableModel) studentNinja.getModel();
+            model.addRow(new Object[]{firstname,middlename,lastname,ninjarank});
+            
+            tfirstname.setText("");
+            tmiddlename.setText("");
+            tlastname.setText("");
+            btnninjarank.getSelectedItem().toString();
+        }
